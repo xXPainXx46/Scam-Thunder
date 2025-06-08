@@ -1,0 +1,387 @@
+/* War Thunder Typography */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* War Thunder Authentic Color Scheme */
+:root {
+  --wt-dark-bg: #1a1a1a;
+  --wt-panel-bg: #2b2b2b;
+  --wt-military-green: #4a5c2a;
+  --wt-gold: #b8860b;
+  --wt-bronze: #cd7f32;
+  --wt-red-warning: #d32f2f;
+  --wt-blue-info: #1976d2;
+  --wt-border: #404040;
+  --wt-text-primary: #e0e0e0;
+  --wt-text-secondary: #b0b0b0;
+  --wt-text-muted: #808080;
+}
+
+body {
+  font-family: 'Orbitron', monospace;
+  background: linear-gradient(135deg, var(--wt-dark-bg) 0%, #0f0f0f 100%);
+  color: var(--wt-text-primary);
+  overflow-x: hidden;
+}
+
+/* War Thunder Panel Styles */
+.wt-panel {
+  background: linear-gradient(145deg, var(--wt-panel-bg) 0%, #1f1f1f 100%);
+  border: 1px solid var(--wt-border);
+  border-radius: 4px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 2px 8px rgba(0,0,0,0.3);
+}
+
+.wt-panel-header {
+  background: linear-gradient(90deg, var(--wt-military-green) 0%, #3d4f23 100%);
+  border-bottom: 1px solid var(--wt-border);
+  padding: 8px 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* War Thunder Button Styles */
+.wt-button {
+  background: linear-gradient(145deg, var(--wt-gold) 0%, var(--wt-bronze) 100%);
+  border: 1px solid #9a7209;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    0 2px 4px rgba(0,0,0,0.3);
+}
+
+.wt-button:hover {
+  background: linear-gradient(145deg, #d4af37 0%, #b8860b 100%);
+  transform: translateY(-1px);
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    0 4px 8px rgba(0,0,0,0.4);
+}
+
+.wt-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 0 2px 4px rgba(0,0,0,0.2),
+    0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* War Thunder Premium Button */
+.wt-premium-button {
+  background: linear-gradient(145deg, var(--wt-red-warning) 0%, #b71c1c 100%);
+  border: 1px solid #8e0000;
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: premium-pulse 2s infinite;
+}
+
+@keyframes premium-pulse {
+  0%, 100% { box-shadow: 0 0 5px var(--wt-red-warning); }
+  50% { box-shadow: 0 0 20px var(--wt-red-warning); }
+}
+
+/* War Thunder Progress Bars */
+.wt-progress-bar {
+  background: #1a1a1a;
+  border: 1px solid var(--wt-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.wt-progress-fill {
+  background: linear-gradient(90deg, var(--wt-military-green) 0%, var(--wt-gold) 100%);
+  height: 100%;
+  transition: width 0.3s ease;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* War Thunder Currency Display */
+.wt-currency {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(43, 43, 43, 0.9);
+  border: 1px solid var(--wt-border);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-weight: bold;
+}
+
+.wt-currency-icon {
+  width: 24px;
+  height: 24px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+
+/* War Thunder Navigation */
+.wt-nav-tab {
+  background: linear-gradient(145deg, #353535 0%, #2a2a2a 100%);
+  border: 1px solid var(--wt-border);
+  border-bottom: none;
+  color: var(--wt-text-secondary);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.wt-nav-tab:hover {
+  background: linear-gradient(145deg, #404040 0%, #353535 100%);
+  color: var(--wt-text-primary);
+}
+
+.wt-nav-tab.active {
+  background: linear-gradient(145deg, var(--wt-military-green) 0%, #3d4f23 100%);
+  color: white;
+  z-index: 10;
+}
+
+.wt-nav-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--wt-military-green);
+}
+
+/* War Thunder Vehicle Card */
+.wt-vehicle-card {
+  background: var(--wt-panel-bg);
+  border: 1px solid var(--wt-border);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.wt-vehicle-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--wt-gold) 0%, var(--wt-bronze) 100%);
+}
+
+.wt-vehicle-card:hover {
+  border-color: var(--wt-gold);
+  box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+  transform: translateY(-2px);
+}
+
+/* War Thunder Rank Badges */
+.wt-rank-badge {
+  background: linear-gradient(145deg, var(--wt-gold) 0%, var(--wt-bronze) 100%);
+  border: 1px solid #9a7209;
+  border-radius: 2px;
+  color: #000;
+  font-weight: bold;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* War Thunder Notification */
+.wt-notification {
+  background: linear-gradient(145deg, var(--wt-panel-bg) 0%, #1f1f1f 100%);
+  border: 1px solid var(--wt-border);
+  border-left: 4px solid var(--wt-gold);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* War Thunder Scrollbar */
+.wt-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wt-scrollbar::-webkit-scrollbar-track {
+  background: var(--wt-dark-bg);
+  border-radius: 4px;
+}
+
+.wt-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(145deg, var(--wt-border) 0%, #303030 100%);
+  border-radius: 4px;
+}
+
+.wt-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(145deg, var(--wt-gold) 0%, var(--wt-bronze) 100%);
+}
+
+/* War Thunder Loading Animation */
+@keyframes wt-loading {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.wt-loading {
+  animation: wt-loading 1s linear infinite;
+}
+
+/* War Thunder Text Effects */
+.wt-text-glow {
+  text-shadow: 0 0 10px var(--wt-gold);
+}
+
+.wt-text-premium {
+  color: var(--wt-red-warning);
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--wt-red-warning);
+}
+
+.wt-text-muted {
+  color: var(--wt-text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .wt-nav-tab {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  
+  .wt-panel {
+    margin: 8px;
+  }
+  
+  .wt-currency {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%
+  }
+
+  .dark {
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%
+  }
+}
+
+
+
+img {
+  object-position: top;
+}
+
+/* Login Screen Styles */
+.wt-input {
+  background: var(--wt-panel-bg);
+  border: 2px solid var(--wt-border);
+  color: var(--wt-text-primary);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.wt-input:focus {
+  outline: none;
+  border-color: var(--wt-gold);
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.2);
+}
+
+.wt-button-premium {
+  background: linear-gradient(135deg, var(--wt-gold), #cc9900);
+  color: black;
+  border: 2px solid var(--wt-gold);
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.wt-button-premium:hover:not(:disabled) {
+  background: linear-gradient(135deg, #d4af37, var(--wt-gold));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(184, 134, 11, 0.3);
+}
+
+.wt-button-premium:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Leaderboard Styles */
+.wt-leaderboard-entry {
+  border: 1px solid var(--wt-border);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.wt-leaderboard-entry:hover {
+  border-color: var(--wt-gold);
+  background: rgba(184, 134, 11, 0.1);
+}
+
+.wt-current-player {
+  border: 2px solid var(--wt-gold);
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+  animation: player-highlight 3s ease-in-out infinite;
+}
+
+@keyframes player-highlight {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(184, 134, 11, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 15px rgba(184, 134, 11, 0.8);
+  }
+}
+
+/* Rank Icons */
+.wt-rank-icon {
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+
+/* Login Screen Animation */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
